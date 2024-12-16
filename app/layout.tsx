@@ -24,11 +24,8 @@ export const metadata: Metadata = {
   description: "Progressive Web Application",
   manifest: "/manifest.json",
   icons: {
-    icon: [
-      { url: "/icons/icon-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icons/icon-512x512.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: [{ url: "/icons/icon-192x192.png" }],
+    icon: [{ url: "/icons/icon.svg", sizes: "any", type: "image/png" }],
+    apple: [{ url: "/icons/icon.svg" }],
   },
 };
 
