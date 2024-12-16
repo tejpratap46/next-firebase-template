@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import { webpack } from "next/dist/compiled/webpack/webpack";
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
@@ -35,17 +34,6 @@ const withPWA = require("@ducanh2912/next-pwa").default({
 const nextConfig: NextConfig = withPWA({
   // Your existing Next.js configuration
   reactStrictMode: true,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  webpack: (config: any, {}) => {
-    // Example: Exclude a 'docs' folder
-    config.plugins.push(
-      new webpack.IgnorePlugin({
-        resourceRegExp: /^\.\/functions$/,
-        contextRegExp: /$/,
-      })
-    );
-    return config;
-  },
   // Add any other Next.js specific configurations
 });
 
