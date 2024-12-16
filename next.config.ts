@@ -1,39 +1,51 @@
 import type { NextConfig } from "next";
+import { webpack } from "next/dist/compiled/webpack/webpack";
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const withPWA = require('@ducanh2912/next-pwa').default({
-  dest: 'public',
+const withPWA = require("@ducanh2912/next-pwa").default({
+  dest: "public",
   register: true,
   skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development',
+  disable: process.env.NODE_ENV === "development",
   runtimeCaching: [
     {
       urlPattern: /^https:\/\/fonts\.(?:gstatic|googleapis)\.com\/.*/i,
-      handler: 'CacheFirst',
+      handler: "CacheFirst",
       options: {
-        cacheName: 'google-fonts',
+        cacheName: "google-fonts",
         expiration: {
           maxEntries: 4,
-          maxAgeSeconds: 365 * 24 * 60 * 60 // 1 year
-        }
-      }
+          maxAgeSeconds: 365 * 24 * 60 * 60, // 1 year
+        },
+      },
     },
     {
       urlPattern: /\.(?:js|css|svg)$/,
-      handler: 'StaleWhileRevalidate',
+      handler: "StaleWhileRevalidate",
       options: {
-        cacheName: 'static-assets',
+        cacheName: "static-assets",
         expiration: {
           maxEntries: 32,
-          maxAgeSeconds: 24 * 60 * 60 // 24 hours
-        }
-      }
-    }
-  ]
+          maxAgeSeconds: 24 * 60 * 60, // 24 hours
+        },
+      },
+    },
+  ],
 });
 
 const nextConfig: NextConfig = withPWA({
   // Your existing Next.js configuration
   reactStrictMode: true,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  webpack: (config: any, {}) => {
+    // Example: Exclude a 'docs' folder
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/functions$/,
+        contextRegExp: /$/,
+      })
+    );
+    return config;
+  },
   // Add any other Next.js specific configurations
 });
 
