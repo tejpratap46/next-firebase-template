@@ -13,6 +13,7 @@ import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { Firestore } from "firebase/firestore";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { firestore } from "./init";
+import { User as AppUser } from "@/firebase/models/user";
 
 /**
  * Hook for user sign up
@@ -162,7 +163,7 @@ export const useCurrentUser = (auth: Auth) => {
   const [profile] = useDocumentData(
     doc(firestore, "users", auth.currentUser?.uid ?? "null")
   );
-  return { user: auth.currentUser, profile };
+  return { user: auth.currentUser, profile: profile as AppUser | undefined };
 };
 
 /**

@@ -78,7 +78,7 @@ const SignUpPage = () => {
         </div>
 
         <Text c="dimmed" size="sm" mt="md">
-          Already have an account? <a href="/login">Log in</a>
+          Already have an account? <a href="/auth/sign_in">Log in</a>
         </Text>
       </Paper>
     </Container>

@@ -66,7 +66,7 @@ const SignInPage = () => {
         </div>
 
         <Text c="dimmed" size="sm" mt="md">
-          Already have an account? <a href="/login">Log in</a>
+          Don&apos;t have have an account? <a href="/auth/sign_up">Log in</a>
         </Text>
       </Paper>
     </Container>

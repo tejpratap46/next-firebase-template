@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@mantine/core";
+import { Button, Modal, Text } from "@mantine/core";
 import React, { useState, useEffect } from "react";
 
 // Define types for the BeforeInstallPromptEvent
@@ -91,14 +91,24 @@ const PwaInstallPrompt: React.FC = () => {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      <Button
-        onClick={handleInstallClick}
-        className="bg-blue-500 text-white hover:bg-blue-600"
-      >
-        Install App
-      </Button>
-    </div>
+    <Modal
+      opened={!(isInstalled || !installPrompt)}
+      onClose={() => {
+        setIsInstalled(true);
+      }}
+      centered
+      withCloseButton={false}
+    >
+      <div className="flex flex-col gap-4 items-center">
+        <Text>Install the app for better performance</Text>
+        <Button
+          onClick={handleInstallClick}
+          className="bg-blue-500 text-white hover:bg-blue-600"
+        >
+          Install App
+        </Button>
+      </div>
+    </Modal>
   );
 };
 
