@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import { UserCreationInput } from "../../../firebase/models/user";
 import { notifications } from "@mantine/notifications";
 import { FirebaseError } from "firebase/app";
+import Link from "next/link";
 
 const SignInPage = () => {
   const router = useRouter();
@@ -85,7 +86,8 @@ const SignInPage = () => {
         </div>
 
         <Text c="dimmed" size="sm" mt="md">
-          Don&apos;t have have an account? <a href="/auth/sign_up">Log in</a>
+          Don&apos;t have have an account?{" "}
+          <Link href="/auth/sign_up">Sign Up</Link>
         </Text>
       </Paper>
     </Container>

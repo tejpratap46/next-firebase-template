@@ -14,6 +14,7 @@ import { useForm } from "@mantine/form";
 import { useSignUp } from "../../../firebase/auth";
 import { auth, firestore } from "../../../firebase/init";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const SignUpPage = () => {
   const router = useRouter();
@@ -85,7 +86,7 @@ const SignUpPage = () => {
         </div>
 
         <Text c="dimmed" size="sm" mt="md">
-          Already have an account? <a href="/auth/sign_in">Log in</a>
+          Already have an account? <Link href="/auth/sign_in">Log in</Link>
         </Text>
       </Paper>
     </Container>
