@@ -6,7 +6,6 @@ import {
   Button,
   Paper,
   Title,
-  Container,
   Divider,
   Text,
 } from "@mantine/core";
