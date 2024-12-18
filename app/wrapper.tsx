@@ -8,7 +8,10 @@ export default function Wrapper({ children }: { children: ReactNode }) {
   return (
     <MantineProvider theme={theme} defaultColorScheme="light">
       <Notifications />
-      <Container className="h-screen" size={"xs"}>
+      <Container
+        className="h-screen flex items-center justify-center"
+        size={"xl"}
+      >
         {children}
       </Container>
     </MantineProvider>

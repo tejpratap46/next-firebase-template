@@ -48,7 +48,7 @@ const SignInPage = () => {
   };
 
   return (
-    <Container size={420} my={40}>
+    <div className="max-w-lg">
       <Title>Log in to Account</Title>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
@@ -90,7 +90,7 @@ const SignInPage = () => {
           <Link href="/auth/sign_up">Sign Up</Link>
         </Text>
       </Paper>
-    </Container>
+    </div>
   );
 };
 

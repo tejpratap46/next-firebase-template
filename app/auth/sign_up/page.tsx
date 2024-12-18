@@ -36,7 +36,7 @@ const SignUpPage = () => {
   const { signUp, isLoading } = useSignUp(auth, firestore);
 
   return (
-    <Container size={420} my={40}>
+    <div className="max-w-lg">
       <Title>Create an Account</Title>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
@@ -89,7 +89,7 @@ const SignUpPage = () => {
           Already have an account? <Link href="/auth/sign_in">Log in</Link>
         </Text>
       </Paper>
-    </Container>
+    </div>
   );
 };
 
