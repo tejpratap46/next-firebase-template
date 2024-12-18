@@ -1513,6 +1513,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@mantine/colors-generator@^7.15.1":
+  version "7.15.1"
+  resolved "https://registry.yarnpkg.com/@mantine/colors-generator/-/colors-generator-7.15.1.tgz#160999198a4a8e33d9c0b1f11cd24151d4124e34"
+  integrity sha512-xhzJ9HfjOVUH5Y5E5xQX3jepB6pA+gZEAMZtvR7YMPH4akgS0NbJuYuF+A8Cq55rLw58vPTtc3nf6ntfyoCk/w==
+
 "@mantine/core@^7.15.1":
   version "7.15.1"
   resolved "https://registry.yarnpkg.com/@mantine/core/-/core-7.15.1.tgz#82d8f765fec6144083a1708d60e87fa5b522f8da"
@@ -2252,6 +2257,11 @@ chokidar@^3.6.0:
     readdirp "~3.6.0"
   optionalDependencies:
     fsevents "~2.3.2"
+
+chroma-js@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/chroma-js/-/chroma-js-3.1.2.tgz#cfb807045182228574eae5380587cdb830e985d6"
+  integrity sha512-IJnETTalXbsLx1eKEgx19d5L6SRM7cH4vINw/99p/M11HCuXGRWL+6YmCm7FWFGIo6dtWuQoQi1dc5yQ7ESIHg==
 
 client-only@0.0.1:
   version "0.0.1"

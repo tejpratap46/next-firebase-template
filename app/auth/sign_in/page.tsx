@@ -12,9 +12,14 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useSignIn } from "@/firebase/auth";
-import { auth } from "@/firebase/init";
+import { auth, getErrMsg } from "@/firebase/init";
+import { useRouter } from "next/navigation";
+import { UserCreationInput } from "../../../firebase/models/user";
+import { notifications } from "@mantine/notifications";
+import { FirebaseError } from "firebase/app";
 
 const SignInPage = () => {
+  const router = useRouter();
   const form = useForm({
     initialValues: {
       email: "",
@@ -27,12 +32,26 @@ const SignInPage = () => {
 
   const { signIn, isLoading } = useSignIn(auth);
 
+  const handleSignIn = async (v: UserCreationInput) => {
+    try {
+      await signIn(v.email, v.password);
+      router.push("/dashboard/admin");
+    } catch (error) {
+      notifications.show({
+        title: "Authentication Error",
+        message: getErrMsg(error as FirebaseError),
+        radius: "sm",
+      });
+      console.log(error);
+    }
+  };
+
   return (
     <Container size={420} my={40}>
       <Title>Log in to Account</Title>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <form onSubmit={form.onSubmit((v) => signIn(v.email, v.password))}>
+        <form onSubmit={form.onSubmit(handleSignIn)}>
           <TextInput
             label="Email"
             placeholder="your@email.com"

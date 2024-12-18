@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { FirebaseError, initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { connectAuthEmulator, getAuth } from "firebase/auth";
 import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
@@ -40,4 +40,14 @@ if (process.env.NEXT_PUBLIC_USE_EMULATOR === "true") {
   console.log("🚀 Firebase Emulators Connected");
 }
 
-export { app, analytics, auth, firestore, functions };
+function getErrMsg(error: FirebaseError) {
+  switch (error.code) {
+    case "auth/invalid-credential":
+      return "Wrong email or password";
+    default:
+      console.log(`Unknown Error: ${error.code}`);
+      return error.code;
+  }
+}
+
+export { app, analytics, auth, firestore, functions, getErrMsg };

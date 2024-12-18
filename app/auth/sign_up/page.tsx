@@ -13,8 +13,10 @@ import {
 import { useForm } from "@mantine/form";
 import { useSignUp } from "../../../firebase/auth";
 import { auth, firestore } from "../../../firebase/init";
+import { useRouter } from "next/navigation";
 
 const SignUpPage = () => {
+  const router = useRouter();
   const form = useForm({
     initialValues: {
       email: "",
@@ -37,7 +39,12 @@ const SignUpPage = () => {
       <Title>Create an Account</Title>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <form onSubmit={form.onSubmit((v) => signUp(v.email, v.password))}>
+        <form
+          onSubmit={form.onSubmit(async (v) => {
+            await signUp(v.email, v.password);
+            router.push("/dashboard/admin");
+          })}
+        >
           <TextInput
             label="Email"
             placeholder="your@email.com"

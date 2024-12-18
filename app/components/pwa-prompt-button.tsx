@@ -101,12 +101,7 @@ const PwaInstallPrompt: React.FC = () => {
     >
       <div className="flex flex-col gap-4 items-center">
         <Text>Install the app for better performance</Text>
-        <Button
-          onClick={handleInstallClick}
-          className="bg-blue-500 text-white hover:bg-blue-600"
-        >
-          Install App
-        </Button>
+        <Button onClick={handleInstallClick}>Install App</Button>
       </div>
     </Modal>
   );
