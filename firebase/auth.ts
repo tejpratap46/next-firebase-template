@@ -166,6 +166,10 @@ export const useCurrentUser = (auth: Auth) => {
   return { user: auth.currentUser, profile: profile as AppUser | undefined };
 };
 
+export const useCachedCurrentUser = (auth: Auth) => {
+  return { user: auth.currentUser, profile: undefined };
+};
+
 /**
  * Create or update user document in Firestore
  * @param firestore Firestore instance

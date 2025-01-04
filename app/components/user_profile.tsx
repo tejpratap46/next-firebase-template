@@ -1,12 +1,12 @@
 "use client";
-import { useCurrentUser } from "@/firebase/auth";
+import {useCachedCurrentUser} from "@/firebase/auth";
 import { auth } from "@/firebase/init";
 
 export default function UserProfile() {
-  const { profile } = useCurrentUser(auth);
+  const { user } = useCachedCurrentUser(auth);
   return (
     <div>
-      <p>Is the user cached: </p> {profile?.email ?? "[NULL]"}
+      <p>Is the user cached: </p> {user?.email ?? "[NULL]"}
     </div>
   );
 }
