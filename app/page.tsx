@@ -1,7 +1,7 @@
 "use client";
 import {useRouter} from "next/navigation";
 import {useCurrentUser, useGoogleSignIn} from "@/firebase/auth";
-import {auth, firestore, getErrMsg} from "@/firebase/init";
+import {auth, firestore} from "@/firebase/init";
 import React from "react";
 import {Button} from "@headlessui/react";
 
